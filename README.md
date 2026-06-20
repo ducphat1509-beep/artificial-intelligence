@@ -9,7 +9,17 @@ Repository học tập của tôi cho học phần **Trí Tuệ Nhân Tạo / Ar
 - **Trường**: Đại học Sư phạm Kỹ thuật Thành phố Hồ Chí Minh (HCM-UTE)
 - **Mục đích**: Lưu trữ bài tập về nhà, báo cáo notebook, source code mô phỏng và phiên bản web trực quan hóa các thuật toán AI đã học.
 
-## Cách chạy phiên bản Web
+## Phiên bản Web
+
+- **Deployment target**: Streamlit Community Cloud.
+- **URL public đề xuất**: [https://artificial-intelligence-btvn.streamlit.app](https://artificial-intelligence-btvn.streamlit.app)
+- **Repository**: [https://github.com/ducphat1509-beep/artificial-intelligence](https://github.com/ducphat1509-beep/artificial-intelligence)
+- **Branch**: `main`
+- **Entry point**: `src/main.py`
+
+Tôi chọn **Streamlit Community Cloud** vì ứng dụng trong repository là một web app Python/Streamlit thực thụ, cần chạy bằng Streamlit runtime thay vì xuất ra HTML tĩnh. Cách deploy này giữ nguyên source hiện có, tự đọc `requirements.txt`, tự rebuild khi tôi push commit mới lên GitHub, và không cần chuyển đổi sang framework khác.
+
+## Cách chạy phiên bản Web ở local
 
 Ứng dụng web được xây dựng bằng **Streamlit**.
 
@@ -17,6 +27,49 @@ Repository học tập của tôi cho học phần **Trí Tuệ Nhân Tạo / Ar
 pip install -r requirements.txt
 streamlit run src/main.py
 ```
+
+Sau khi chạy local, mở:
+
+```text
+http://localhost:8501
+```
+
+## Cách deploy lên Streamlit Community Cloud
+
+Tài liệu chính thức của Streamlit Community Cloud:
+
+- [Deploy your app](https://docs.streamlit.io/deploy/streamlit-community-cloud/deploy-your-app/deploy)
+- [App dependencies](https://docs.streamlit.io/deploy/streamlit-community-cloud/deploy-your-app/app-dependencies)
+- [File organization](https://docs.streamlit.io/deploy/streamlit-community-cloud/deploy-your-app/file-organization)
+
+Các bước deploy:
+
+1. Push source mới nhất lên GitHub.
+
+   ```powershell
+   git push origin main
+   ```
+
+2. Mở [https://share.streamlit.io](https://share.streamlit.io) và đăng nhập bằng GitHub.
+
+3. Chọn **Create app** hoặc **Deploy an app**.
+
+4. Nhập cấu hình:
+
+   ```text
+   Repository: ducphat1509-beep/artificial-intelligence
+   Branch: main
+   Main file path: src/main.py
+   App URL: artificial-intelligence-btvn
+   ```
+
+5. Bấm **Deploy**. Khi deploy thành công, web app sẽ có URL:
+
+   ```text
+   https://artificial-intelligence-btvn.streamlit.app
+   ```
+
+Nếu subdomain `artificial-intelligence-btvn` đã được dùng, tôi chỉ cần đổi trường **App URL** sang một tên khác, ví dụ `ai-btvn-24110296`, rồi cập nhật lại URL trong README.
 
 Phiên bản web có bốn module chính:
 
