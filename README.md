@@ -1,4 +1,4 @@
-# Học phần: Trí Tuệ Nhân Tạo (Artificial Intelligence)
+# Học phần: Nhập môn Trí tuệ Nhân tạo (ARIN330585)
 
 Repository học tập của tôi cho học phần **Trí Tuệ Nhân Tạo / Artificial Intelligence**.
 
@@ -6,7 +6,8 @@ Repository học tập của tôi cho học phần **Trí Tuệ Nhân Tạo / Ar
 
 - **Sinh viên thực hiện**: Nguyễn Đức Phát
 - **Mã số sinh viên**: 24110296
-- **Trường**: Đại học Sư phạm Kỹ thuật Thành phố Hồ Chí Minh (HCM-UTE)
+- **Lớp học phần**: ARIN330585
+- **Trường**: Đại học Công Nghệ Kỹ thuật Thành phố Hồ Chí Minh (HCM-UTE)
 - **Mục đích**: Lưu trữ bài tập về nhà, báo cáo notebook, source code mô phỏng và phiên bản web trực quan hóa các thuật toán AI đã học.
 
 ## Phiên bản Web
@@ -17,19 +18,42 @@ Repository học tập của tôi cho học phần **Trí Tuệ Nhân Tạo / Ar
 - **Branch**: `main`
 - **Entry point**: `src/main.py`
 
-Tôi chọn **Streamlit Community Cloud** vì ứng dụng trong repository là một web app Python/Streamlit thực thụ, cần chạy bằng Streamlit runtime thay vì xuất ra HTML tĩnh. Cách deploy này giữ nguyên source hiện có, tự đọc `requirements.txt`, tự rebuild khi tôi push commit mới lên GitHub, và không cần chuyển đổi sang framework khác.
+*Lưu ý: Ứng dụng web được xây dựng bằng Streamlit, chạy trực tiếp trên Streamlit Community Cloud bằng cách tự động cài đặt các thư viện trong `requirements.txt` và tự động cập nhật khi có commit mới trên branch `main`.*
 
 ## Cách chạy phiên bản Web ở local
 
-Ứng dụng web được xây dựng bằng **Streamlit**.
+Để chạy ứng dụng ở máy local, bạn nên tạo một môi trường ảo (virtual environment) để tránh xung đột thư viện:
 
-```powershell
-pip install -r requirements.txt
-streamlit run src/main.py
-```
+1. **Khởi tạo môi trường ảo (venv)**:
+   ```powershell
+   python -m venv .venv
+   ```
 
-Sau khi chạy local, mở:
+2. **Kích hoạt môi trường ảo**:
+   - Trên **Windows (PowerShell)**:
+     ```powershell
+     .venv\Scripts\Activate.ps1
+     ```
+   - Trên **Windows (Command Prompt)**:
+     ```cmd
+     .venv\Scripts\activate.bat
+     ```
+   - Trên **macOS/Linux**:
+     ```bash
+     source .venv/bin/activate
+     ```
 
+3. **Cài đặt các thư viện**:
+   ```bash
+   pip install -r requirements.txt
+   ```
+
+4. **Khởi chạy web app**:
+   ```bash
+   streamlit run src/main.py
+   ```
+
+Sau khi khởi chạy thành công, trình duyệt sẽ tự động mở hoặc bạn có thể truy cập thủ công địa chỉ:
 ```text
 http://localhost:8501
 ```
@@ -37,129 +61,119 @@ http://localhost:8501
 ## Cách deploy lên Streamlit Community Cloud
 
 Tài liệu chính thức của Streamlit Community Cloud:
-
 - [Deploy your app](https://docs.streamlit.io/deploy/streamlit-community-cloud/deploy-your-app/deploy)
 - [App dependencies](https://docs.streamlit.io/deploy/streamlit-community-cloud/deploy-your-app/app-dependencies)
-- [File organization](https://docs.streamlit.io/deploy/streamlit-community-cloud/deploy-your-app/file-organization)
 
-Các bước deploy:
-
-1. Push source mới nhất lên GitHub.
-
-   ```powershell
+Các bước deploy cơ bản:
+1. Đảm bảo mã nguồn mới nhất đã được đẩy lên GitHub:
+   ```bash
    git push origin main
    ```
+2. Truy cập [https://share.streamlit.io](https://share.streamlit.io) và đăng nhập bằng tài khoản GitHub chứa repository này.
+3. Nhấp vào nút **Create app** (hoặc **Deploy an app**) và cấu hình như sau:
+   - **Repository**: `ducphat1509-beep/artificial-intelligence`
+   - **Branch**: `main`
+   - **Main file path**: `src/main.py`
+   - **App URL**: `artificial-intelligence-btvn`
+4. Chọn **Deploy**. Sau khi cài đặt môi trường thành công, ứng dụng sẽ hoạt động tại URL đã đăng ký.
 
-2. Mở [https://share.streamlit.io](https://share.streamlit.io) và đăng nhập bằng GitHub.
+*Mẹo: Nếu URL mong muốn đã bị trùng, hãy đổi **App URL** sang một tên khác (ví dụ: `ai-btvn-24110296`) rồi cập nhật lại liên kết trong file README này.*
 
-3. Chọn **Create app** hoặc **Deploy an app**.
+## Tổng quan các Module trong phiên bản Web
 
-4. Nhập cấu hình:
+Ứng dụng trực quan hóa gồm 4 module chính tương ứng với các chủ đề bài học:
 
-   ```text
-   Repository: ducphat1509-beep/artificial-intelligence
-   Branch: main
-   Main file path: src/main.py
-   App URL: artificial-intelligence-btvn
-   ```
+1. **Search Algorithms** (Module Tìm kiếm): Trực quan hóa đường đi trên Grid Pathfinding, giải 8-Puzzle và xếp 8 quân hậu (8-Queens).
+2. **Vacuum Agent** (Module Tác tử hút bụi): Mô phỏng hoạt động của Simple Reflex Agent và Model-Based Agent trong phòng 4x4.
+3. **CSP Lab** (Module Thỏa mãn ràng buộc): Giải bài toán Tô màu bản đồ Úc (Map Coloring) và xếp 8-Puzzle dưới dạng CSP.
+4. **Adversarial Search** (Module Tìm kiếm đối kháng): Debug trực quan từng bước đệ quy của thuật toán trong trò chơi Tic-Tac-Toe.
 
-5. Bấm **Deploy**. Khi deploy thành công, web app sẽ có URL:
+---
 
-   ```text
-   https://artificial-intelligence-btvn.streamlit.app
-   ```
+## Chi tiết Thuật toán & Phương pháp Trực quan
 
-Nếu subdomain `artificial-intelligence-btvn` đã được dùng, tôi chỉ cần đổi trường **App URL** sang một tên khác, ví dụ `ai-btvn-24110296`, rồi cập nhật lại URL trong README.
+### 1. Tìm kiếm không có thông tin (Uninformed Search)
+- **BFS** (Breadth-First Search)
+- **DFS** (Depth-First Search)
+- **IDS** (Iterative Deepening Search)
+- **UCS** (Uniform Cost Search)
 
-Phiên bản web có bốn module chính:
+### 2. Tìm kiếm có thông tin (Informed Search)
+- **Greedy Best-First Search**
+- **A* Search**
+- **IDA* Search**
+- *Hàm Heuristic tích hợp*: Manhattan Distance (Khoảng cách Manhattan) và Misplaced Tiles (Số ô sai vị trí) áp dụng cho 8-Puzzle và Grid Pathfinding.
 
-- **Search Algorithms**: 8-Puzzle, Grid Pathfinding và 8-Queens.
-- **Vacuum Agent**: Simple Reflex Agent và Model-Based Agent.
-- **CSP Lab**: Map Coloring và 8-Puzzle dưới dạng CSP.
-- **Adversarial Search**: Tic-Tac-Toe với debugger từng bước.
+### 3. Tìm kiếm cục bộ & Tối ưu hóa (Local Search & Meta-heuristic)
+- **Simple Hill Climbing** (Leo đồi đơn giản)
+- **Steepest-Ascent Hill Climbing** (Leo đồi dốc nhất)
+- **Stochastic Hill Climbing** (Leo đồi ngẫu nhiên)
+- **Hill Climbing with Sideways Moves** (Leo đồi cho phép đi ngang)
+- **Random-Restart Hill Climbing** (Leo đồi khởi động lại ngẫu nhiên)
+- **Local Beam Search** (`k = 2`, chọn trạng thái tốt hơn)
+- **Local Beam Search** (`k = 2`, chọn trạng thái tốt nhất)
+- **Simulated Annealing** (Mô phỏng luyện kim)
 
-## Thuật toán trong phiên bản Web
+### 4. Tìm kiếm trong môi trường phức tạp (Complex Environments)
+- **Sensorless / Belief State Search** (Tìm kiếm không cảm biến)
+- **Partial Observation Search** (Tìm kiếm quan sát một phần)
+- **AND-OR Graph Search** (Tìm kiếm trên đồ thị AND-OR)
 
-### Tìm kiếm không có thông tin
+### 5. Bài toán thỏa mãn ràng buộc (CSP - Constraint Satisfaction Problem)
+- **Backtracking** (Quay lui cơ bản)
+- **Forward Checking** (Kiểm tra trước)
+- **AC-3 Algorithm + Backtracking** (Thuật toán Arc Consistency 3 kết hợp quay lui)
+- **Min-Conflicts** (Thuật toán tối thiểu xung đột)
 
-- BFS (Breadth-First Search)
-- DFS (Depth-First Search)
-- IDS (Iterative Deepening Search)
-- UCS (Uniform Cost Search)
+### 6. Tìm kiếm đối kháng (Adversarial Search)
+- **Minimax**
+- **Alpha-Beta Pruning** (Cắt tỉa Alpha-Beta)
+- **Expectimax**
 
-### Tìm kiếm có thông tin
-
-- Greedy Best-First Search
-- A* Search
-- IDA* Search
-- Manhattan Distance và Misplaced Tiles
-
-### Local Search và Meta-heuristic
-
-- Simple Hill Climbing
-- Steepest-Ascent Hill Climbing
-- Stochastic Hill Climbing
-- Hill Climbing with Sideways Moves
-- Random-Restart Hill Climbing
-- Local Beam Search, `k = 2`, chọn trạng thái tốt hơn
-- Local Beam Search, `k = 2`, chọn trạng thái tốt nhất
-- Simulated Annealing
-
-### Tìm kiếm trong môi trường phức tạp
-
-- Sensorless / Belief State Search
-- Partial Observation Search
-- AND-OR Graph Search
-
-### Constraint Satisfaction Problem
-
-- Backtracking
-- Forward Checking
-- Arc Consistency với AC-3
-- Min-Conflicts
-
-### Tìm kiếm đối kháng
-
-- Minimax
-- Alpha-Beta Pruning
-- Expectimax
+---
 
 ## Nội dung theo buổi học
 
-- **Buổi 4**: Vacuum Agent với Simple Reflex Agent và Model-Based Agent.
-- **Buổi 5**: 8-Puzzle với BFS và DFS.
-- **Buổi 6**: 8-Puzzle với IDS theo cơ chế tìm kiếm sâu dần.
-- **Buổi 7**: 8-Puzzle với UCS và cấu hình step cost.
-- **Buổi 8**: Greedy Best-First Search và A* Search với heuristic.
-- **Buổi 9**: IDA* và Hill Climbing.
-- **Buổi 10**: Steepest-Ascent, Stochastic, Sideways Moves, Random-Restart và Local Beam Search.
+- **Buổi 4**: Tác tử hút bụi (Vacuum Agent - Simple Reflex & Model-Based Agent).
+- **Buổi 5**: Giải 8-Puzzle bằng BFS và DFS.
+- **Buổi 6**: Giải 8-Puzzle bằng thuật toán tìm kiếm sâu dần (IDS).
+- **Buổi 7**: Giải 8-Puzzle bằng tìm kiếm chi phí đồng nhất (UCS) với tùy chỉnh Step Cost.
+- **Buổi 8**: Greedy Best-First Search và A* Search trên 8-Puzzle & Pathfinding.
+- **Buổi 9**: Thuật toán IDA* và Hill Climbing.
+- **Buổi 10**: Các biến thể nâng cao của Hill Climbing (Steepest-Ascent, Stochastic, Sideways Moves, Random-Restart) và Local Beam Search.
 - **Buổi 11**: Simulated Annealing và Belief State.
 - **Buổi 12**: Sensorless Search, Partial Observation và AND-OR Graph Search.
-- **Buổi 13**: CSP với Backtracking, Forward Checking, AC-3 và Min-Conflicts trên Map Coloring và 8-Puzzle CSP.
-- **Buổi 14**: Minimax, Alpha-Beta Pruning và Expectimax trên Tic-Tac-Toe.
+- **Buổi 13**: CSP Lab với Backtracking, Forward Checking, AC-3 và Min-Conflicts trên Map Coloring & 8-Puzzle CSP.
+- **Buổi 14**: Minimax, Alpha-Beta Pruning và Expectimax trên Tic-Tac-Toe (kèm trình gỡ lỗi đệ quy chi tiết).
 
-## Cấu trúc thư mục chính
+---
+
+## Cấu trúc thư mục dự án
 
 ```text
 .
-├── Buổi 4..14/                 # Notebook BTVN theo từng buổi
+├── Buổi 4..14/                 # File Notebook (.ipynb) báo cáo BTVN theo từng buổi học
 ├── src/
-│   ├── main.py                 # Entry point Streamlit
-│   ├── search/                 # Generic search core và thuật toán Buổi 5-12
-│   ├── problems/               # 8-Puzzle, Pathfinding, 8-Queens và renderer
-│   ├── csp/                    # CSP models và solver Buổi 13
-│   ├── adversarial/            # Game search và debugger Buổi 14
-│   ├── core/                   # Vacuum Agent logic
-│   ├── views/                  # Giao diện Streamlit theo module
-│   └── styles/                 # Theme giao diện
-├── docs/                       # Tài liệu kiến trúc
-├── requirements.txt
-└── README.md
+│   ├── main.py                 # File entry point khởi chạy Streamlit Web App
+│   ├── search/                 # Nhân (core) thuật toán tìm kiếm độc lập và thuật toán từ Buổi 5-12
+│   ├── problems/               # Cấu trúc các bài toán (8-Puzzle, Pathfinding, 8-Queens) và bộ sinh HTML tương ứng
+│   ├── csp/                    # Mô hình CSP và các thuật toán giải bài toán CSP (Buổi 13)
+│   ├── adversarial/            # Trực quan hóa thuật toán Game Search đối kháng (Buổi 14)
+│   ├── core/                   # Logic mô phỏng tác tử hút bụi (Vacuum Agent)
+│   ├── views/                  # Các giao diện (views) Streamlit tương ứng với từng module
+│   └── styles/                 # Cài đặt theme, màu sắc tân cổ điển (neobrutalism style)
+├── docs/                       # Tài liệu thiết kế hệ thống và kiến trúc phần mềm
+│   └── ARCHITECTURE.md         # Chi tiết kiến trúc phân tách giữa Problem - Algorithm - UI
+├── requirements.txt            # Danh sách các thư viện cần cài đặt
+└── README.md                   # Hướng dẫn sử dụng và tài liệu tổng quan dự án
 ```
 
-## Nguyên tắc triển khai
+## Nguyên tắc triển khai dự án
 
-- Notebook giữ vai trò báo cáo học thuật và demo Tkinter độc lập.
-- Web app dùng source Python trong `src/`, không nạp thuật toán trực tiếp từ notebook.
-- Các thuật toán sinh trạng thái trung gian để giao diện có thể chạy từng bước, tự động chạy và debug.
-- Mỗi nhóm bài toán có renderer phù hợp với trạng thái và metric riêng.
+1. **Phân tách trách nhiệm rõ ràng**:
+   - File Jupyter Notebook đóng vai trò báo cáo học thuật và chạy thử nghiệm cục bộ độc lập (sử dụng Tkinter hoặc CLI).
+   - Ứng dụng Web sử dụng mã nguồn chuẩn hóa hoàn toàn bằng Python thuần trong thư mục `src/`, tuyệt đối không phụ thuộc hay tải trực tiếp từ notebook.
+2. **Thiết kế thuật toán tương thích hoạt động từng bước (Step-based)**:
+   - Các thuật toán tìm kiếm/CSP/đối kháng được thiết kế dưới dạng Generator (`yield`) hoặc lưu giữ vết trạng thái trung gian (`SearchStep`, `CSPStep`, Game Events). Nhờ đó, giao diện Web có thể điều khiển chạy từng bước (Step-by-step), tự động chạy với tốc độ tùy chỉnh (Autoplay) và hiển thị trực quan các cấu trúc dữ liệu như Frontier, Explored Set hay cây đệ quy.
+3. **Bộ sinh giao diện tách biệt (Problem Renderers)**:
+   - Mỗi bài toán tự định nghĩa cách hiển thị trạng thái của nó (dạng bảng cho 8-Puzzle, đồ thị mạng lưới cho Pathfinding, bản đồ SVG cho Map Coloring) mà không làm ảnh hưởng đến lõi thuật toán tìm kiếm chung.
