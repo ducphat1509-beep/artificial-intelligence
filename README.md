@@ -13,7 +13,7 @@ Repository học tập của tôi cho học phần **Trí Tuệ Nhân Tạo / Ar
 ## Phiên bản Web
 
 - **Deployment target**: Streamlit Community Cloud.
-- **URL public đề xuất**: [https://artificial-intelligence-btvn.streamlit.app](https://artificial-intelligence-btvn.streamlit.app)
+- **URL public đang hoạt động**: [https://artificial-intelligence-hw.streamlit.app](https://artificial-intelligence-hw.streamlit.app)
 - **Repository**: [https://github.com/ducphat1509-beep/artificial-intelligence](https://github.com/ducphat1509-beep/artificial-intelligence)
 - **Branch**: `main`
 - **Entry point**: `src/main.py`
@@ -74,7 +74,7 @@ Các bước deploy cơ bản:
    - **Repository**: `ducphat1509-beep/artificial-intelligence`
    - **Branch**: `main`
    - **Main file path**: `src/main.py`
-   - **App URL**: `artificial-intelligence-btvn`
+   - **App URL**: `artificial-intelligence-hw`
 4. Chọn **Deploy**. Sau khi cài đặt môi trường thành công, ứng dụng sẽ hoạt động tại URL đã đăng ký.
 
 *Mẹo: Nếu URL mong muốn đã bị trùng, hãy đổi **App URL** sang một tên khác (ví dụ: `ai-btvn-24110296`) rồi cập nhật lại liên kết trong file README này.*
