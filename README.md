@@ -22,9 +22,7 @@ Repository học tập của tôi cho học phần **Trí Tuệ Nhân Tạo / Ar
 
 ## Video demo hướng dẫn chạy
 
-Video demo: [demo-huong-dan-chay-upload.mp4](https://github.com/zomboXx/artificial-intelligence/blob/main/docs/media/demo-huong-dan-chay-upload.mp4)
-
-*Lưu ý: Để video hiển thị player trực tiếp trong README, cần upload file `docs/media/demo-huong-dan-chay-upload.mp4` vào Issue/PR rồi dán URL dạng `https://github.com/user-attachments/assets/...` vào đây.*
+https://github.com/user-attachments/assets/3a7333b5-5c78-4096-9aa0-fd7c8c850b26
 
 ## Cách chạy phiên bản Web ở local
 
