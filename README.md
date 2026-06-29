@@ -20,6 +20,12 @@ Repository học tập của tôi cho học phần **Trí Tuệ Nhân Tạo / Ar
 
 *Lưu ý: Ứng dụng web được xây dựng bằng Streamlit, chạy trực tiếp trên Streamlit Community Cloud bằng cách tự động cài đặt các thư viện trong `requirements.txt` và tự động cập nhật khi có commit mới trên branch `main`.*
 
+## Video demo hướng dẫn chạy
+
+<video src="docs/media/demo-huong-dan-chay.mp4" controls width="100%"></video>
+
+Nếu trình duyệt không hiển thị video trực tiếp trong README, có thể mở tại đây: [demo-huong-dan-chay.mp4](docs/media/demo-huong-dan-chay.mp4).
+
 ## Cách chạy phiên bản Web ở local
 
 Để chạy ứng dụng ở máy local, bạn nên tạo một môi trường ảo (virtual environment) để tránh xung đột thư viện:
