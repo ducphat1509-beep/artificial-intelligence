@@ -14,7 +14,7 @@ Repository học tập của tôi cho học phần **Trí Tuệ Nhân Tạo / Ar
 
 - **Deployment target**: Streamlit Community Cloud.
 - **URL public đang hoạt động**: [https://artificial-intelligence-hw.streamlit.app](https://artificial-intelligence-hw.streamlit.app)
-- **Repository**: [https://github.com/ducphat1509-beep/artificial-intelligence](https://github.com/ducphat1509-beep/artificial-intelligence)
+- **Repository**: [https://github.com/zomboXx/artificial-intelligence](https://github.com/zomboXx/artificial-intelligence)
 - **Branch**: `main`
 - **Entry point**: `src/main.py`
 
@@ -22,9 +22,9 @@ Repository học tập của tôi cho học phần **Trí Tuệ Nhân Tạo / Ar
 
 ## Video demo hướng dẫn chạy
 
-<video src="docs/media/demo-huong-dan-chay.mp4" controls width="100%"></video>
+[![Video demo hướng dẫn chạy](docs/media/demo-huong-dan-chay-thumbnail.jpg)](https://github.com/zomboXx/artificial-intelligence/blob/main/docs/media/demo-huong-dan-chay.mp4)
 
-Nếu trình duyệt không hiển thị video trực tiếp trong README, có thể mở tại đây: [demo-huong-dan-chay.mp4](docs/media/demo-huong-dan-chay.mp4).
+Bấm vào ảnh trên để xem video demo. Nếu GitHub không phát trực tiếp, có thể mở/tải file tại đây: [demo-huong-dan-chay.mp4](https://raw.githubusercontent.com/zomboXx/artificial-intelligence/main/docs/media/demo-huong-dan-chay.mp4).
 
 ## Cách chạy phiên bản Web ở local
 
